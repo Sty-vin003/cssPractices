@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potfolio Site</title>
+    <style>
+
+        .project{
+            position: relative;   
+               
+        }
+
+        .project img{
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+        }
+        .project .overlay{
+            background-color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: 0;
+            left: 0;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            font-size: 36px;
+            font-weight: bold ;
+            letter-spacing: 2px;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        .project .overlay:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        .container{
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            padding: 64px 0;
+            margin: 0 auto;
+        }
+        .navbar .left{
+           font-size: 32px;
+           
+        }
+        .navbar .right a{
+            text-decoration: none;
+            color: black;
+        }
+        .navbar .right{
+width: 400px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+        }
+        .navbar .right a:hover{
+            text-decoration: underline;
+            color: black;
+        }
+        .navbar .right img{
+            width: 24px;
+            height: 24px;
+        }
+        .navbar .hamburger{
+          height: 50px;
+          width: 50px;
+          
+        }
+
+        .navbar .bar1, .bar2, .bar3{
+            background-color: black;
+            height: 4px;
+            width: 36px;
+            margin: 3px;
+            border-radius: 10px;
+        }
+        .navbar .hamburger{
+            display: none;
+        }
+        .navbar .hamburger:hover{
+            cursor: pointer;
+        }
+        .mobileNav{
+            width: 80px;
+            background-color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            right: -160px;
+            padding: 16px;
+            transition: tranform 0.3s;
+        }
+        .mobileNav img{
+            height: 24px;
+            width: 24px;
+        }
+        .openDrawer{
+            transform: translate(-160px);
+        }
+        .mobileNav a{
+        text-decoration: none;
+        color: black;
+        margin: 6px 0;
+
+        }
+        .mobileNav a:hover{
+            text-decoration: underline;
+        }
+        .project-grid{
+            display: grid;
+            grid-template-areas: 
+            "eth eth alphabet"
+            "eth eth traveler"
+            "astro cube traveler"
+            "cup insta insta"
+            "cup insta insta"
+            "foam foam  dimention"
+            "foam foam  dimention";
+            gap: 16px;
+            width: 100%;
+            
+        }
+        #eth{
+            grid-area: eth;
+        }
+        #alphabet{
+            grid-area: alphabet;
+        }
+        #traveler{
+            grid-area: traveler;
+        }
+        #astro{
+            grid-area: astro;
+        }
+        #cube{
+            grid-area: cube;
+        }
+        #cup{
+            grid-area: cup;
+        }
+        #insta{
+            grid-area: insta;
+        }
+        #foam{
+            grid-area: foam;
+        }
+        #dimensional{
+            grid-area: dimention;
+        }
+        .overlay.white{
+            color: white;
+        }
+        @media only screen  and (max-width: 1100px){
+            .container{
+                max-width: 100%;
+            }
+            .project-grid{
+                grid-template-areas: 
+            "eth eth "
+            "alphabet traveler"
+            "astro cube "
+            "insta insta"
+            "cup foam"
+            "dimention  dimention";
+            max-width: 100%;
+            }
+        }
+        @media only screen  and (max-width: 768px){
+            .project-grid{
+                margin-top: 100px;
+            }
+            .navbar{
+                padding: 16px 0;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 3;
+                background-color: white;
+                width: 100%;
+                padding: 16px 24px;
+                box-sizing: border-box;
+
+            }
+            .navbar .hamburger
+          {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+            .navbar .right{
+                display: none;
+            }
+            .footer{
+                padding: 32px;
+                font-size: 14px;
+            }
+            .project-grid{
+            grid-template-areas: 
+            "eth eth "
+            "alphabet alphabet"
+            "traveler traveler"
+            "astro cube "
+            "insta insta"
+            "cup cup"
+            "foam foam"
+            "dimention  dimention";
+            max-width: 100%;
+            }
+            .project .overlay{
+                font-size: 24px;
+            }
+        }
+        .footer{
+            text-align: center;
+            padding: 64px;
+        }
+
+        .animateBar1{
+animation: flipBar1 0.3s ;
+animation-fill-mode: forwards;
+        }
+        .animateBar2{
+animation: fadeBar2 0.3s ;
+animation-fill-mode: forwards;
+        }
+        .animateBar3{
+animation: flipbar3 0.3s ;
+animation-fill-mode: forwards;
+        }
+
+
+
+
+
+        @keyframes fadeBar2{
+from{
+    transform: scalex(1);
+    opacity: 1;
+}
+to{
+    transform: scale(0);
+    opacity: 0;
+}
+        }
+
+        @keyframes flipBar1{
+from{
+    transform: rotate(0);
+}
+    
+to{
+    transform: rotate(45deg) translate(4px, 3px) ;
+}
+    
+}
+
+        @keyframes flipbar3{
+from{
+    transform: rotate(0); 
+}
+to{
+    transform: rotate(-45deg) translate(4px, -3px);
+}
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+    <header class="navbar">
+        <div class="left">Patrick star</div>
+        <nav class="right">
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
+
+            <a href="#dribble">
+                <img src="dribble_icon.png" alt="">
+            </a>
+            <a href="#dribble">
+                <img src="insta_icon.png" alt="">
+            </a>
+            <a href="#dribble">
+                <img src="v_icon.png" alt="">
+            </a>
+        </nav>
+        <div class="hamburger">
+            <div class="bar1"></div>
+            <div class="bar3"></div>
+            <div class="bar2"></div>
+        </div>
+    </header>
+    <nav class="mobileNav">
+    <a href="#work">work</a>
+    <a href="#contact">contact</a>
+    <a href="#dribble">
+        <img src="dribble_icon.png" alt="">
+    </a>
+    <a href="#dribble">
+        <img src="insta_icon.png" alt="">
+    </a>
+    <a href="#dribble">
+        <img src="v_icon.png" alt="">
+    </a>
+</nav>
+    <div class="project-grid">
+<div class="project" id="eth">
+    <img src="blue.jpg" alt="">
+    <p class="overlay">VIEW PROJECT</p>
+</div>
+<div class="project" id="alphabet">
+    <img src="cool.jpg" alt="">
+    <p class="overlay white">VIEW PROJECT</p>
+</div>
+<div class="project" id="traveler">
+    <img src="car2.jpeg"  alt="">
+    <p class="overlay">VIEW PROJECT</p>
+</div>
+<div class="project" id="cube">
+    <img src="wlf.jpg" alt="">
+    <p class="overlay white">VIEW PROJECT</p>
+</div>
+<div class="project" id="astro">
+    <img src="black cool.jpg" alt="">
+    <p class="overlay">VIEW PROJECT</p>
+</div>
+<div class="project" id="astro">
+    <img src="stark.jpg" alt="">
+    <p class="overlay">VIEW PROJECT</p>
+</div>
+<div class="project" id="astro">
+    <img src="philipp-pilz-QZ2EQuPpQJs-unsplash.jpg" alt="">
+    <p class="overlay">VIEW PROJECT</p>
+</div>
+<div class="project" id="cup">
+    <img src="marek-szturc-8Ou3EZmTMWA-unsplash.jpg" alt="">
+    <p class="overlay">VIEW PROJECT</p>
+</div>
+<div class="project" id="insta">
+    <img src="blue.jpg" alt="">
+    <p class="overlay white">VIEW PROJECT</p>
+</div>
+<div class="project" id="foam">
+    <img src="yellow_cool_car.jpg" alt="">
+    <p class="overlay">VIEW PROJECT</p>
+</div>
+<div class="project" id="dimensional">
+    <img src="blue.jpg" alt="">
+    <p class="overlay">VIEW PROJECT</p>
+</div>
+</div>
+<footer class="footer">Designed and built by Patric Star in Bikini Bottom</footer>
+</div>
+<script src="index.js"></script>
+</body>
+</html>

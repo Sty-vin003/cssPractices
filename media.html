@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=h1, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  header, footer{
+    background-color: purple;
+    height: 200px;
+  }
+  article{
+    background-color: teal;
+    height:400px ;
+  }
+  aside{
+    background-color: aquamarine;
+height: 400px;
+}
+@media only screen and (min-width: 1000px){
+main{
+    display: flex;
+}
+article{
+    flex: 1 1 70%;
+}
+aside{
+    flex: 1 1 30%;
+}
+}
+@media only screen and (min-width: 1500px){
+main{
+    display: flex;
+}
+article{
+    flex: 1 1 90%;
+}
+aside{
+    flex: 1 1 10%;
+}
+}
+
+    </style>
+</head>
+<body>
+    <header></header>
+    <main>
+    <article></article>
+    <aside></aside>
+    </main>
+    <footer></footer>
+
+
+</body>
+
+</html>
